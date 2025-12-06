@@ -123,33 +123,43 @@ public class NoteSpawner : MonoBehaviour
         yield return new WaitForSeconds(transitionDuration);
     }
 
-    public void BeginChart(float delay = 3f)
+    public void BeginChart(float delay = -1f)
     {
         StopAllCoroutines();
-        StartCoroutine(BeginChartRoutine(delay));
+        StartCoroutine(BeginChartRoutine((delay < 0f) ? startDelay : delay));
     }
 
     IEnumerator BeginChartRoutine(float delay)
     {
-        Debug.Log("Chart " + _chartInfo.name + " Started!");
+        AudioManager.Instance.PreloadMusic(_chartInfo.musicClip);
+        yield return new WaitForSeconds(delay - GameManager.Instance.noteDelay);
 
-        yield return new WaitForSeconds(delay);
+        Debug.Log("Chart " + _chartInfo.name + " Started!");
         onChartStart.Invoke();
         isStarted = true;
 
+        StartCoroutine(SpawnNotesRoutine());
+        
+        yield return new WaitForSeconds(GameManager.Instance.noteDelay + GameManager.Instance.latency);
+
+        StartMusic();
+    }
+
+    void StartMusic()
+    {
         if (_chartInfo.musicClip != null)
-            AudioManager.Instance.PlayMusic(_chartInfo.musicClip);
-        else Debug.LogWarning("Music of " + _chartInfo.name + " is empty");
+            AudioManager.Instance.PlayPreloadedMusic();
+        else Debug.LogWarning("Music of " + _chartInfo.name + " is empty");        
+    }
 
-        yield return new WaitForSeconds(GameManager.Instance.latency);
-
+    IEnumerator SpawnNotesRoutine()
+    {
         foreach (var note in Notes)
         {
             yield return new WaitForSeconds(note.delay);
 
             SpawnNote(note);
-        }
-        // onChartEnded.Invoke();
+        }        
     }
 
     void SpawnNote(Note note)

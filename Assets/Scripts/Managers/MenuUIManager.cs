@@ -63,18 +63,21 @@ public class MenuUIManager : MonoBehaviour
 
         if (results.Count > 0)
         {
-            GameObject target = results[0].gameObject;
-
-            try
+            foreach (var result in results)
             {
-                GloveInteractable interact = target.GetComponent<GloveInteractable>();
+                GameObject target = result.gameObject;
 
-                interact.ButtonInteract();
-                Debug.Log("Object " + target.name + " at " + screenPosition + " clicked!");
-            }
-            catch
-            {
-                Debug.Log("Tried to click object " + target.name + " at " + screenPosition + " but it cannot be interacted with.");
+                try
+                {
+                    GloveInteractable interact = target.GetComponent<GloveInteractable>();
+
+                    interact.ButtonInteract();
+                    Debug.Log("Object " + target.name + " at " + screenPosition + " clicked!");
+                }
+                catch
+                {
+                    Debug.Log("Tried to click object " + target.name + " at " + screenPosition + " but it cannot be interacted with.");
+                }
             }
         }
         else

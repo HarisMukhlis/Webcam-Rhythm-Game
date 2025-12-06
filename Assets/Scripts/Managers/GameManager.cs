@@ -22,10 +22,12 @@ public class GameManager : MonoBehaviour
 
     [Header("Settings Stats")]
     public float latency = 0.1f;
+    public float noteDelay = 2f;
     [Space]
     public float sensitivity = 10f;
-    public Vector2 ScreenSize { get; private set; } = new Vector2(1920, 1080);
-    public float ScreenRatio { get => ScreenSize.x / ScreenSize.y; }
+    public Vector2 screenSize = new Vector2(1920, 1080);
+    public Vector2 GetActualScreenSize => new Vector2(Screen.width, Screen.height);
+    public float ScreenRatio { get => screenSize.x / screenSize.y; }
 
     [Header("Game Stats")]
     public const int MAX_SCORE = 1000000;
@@ -60,7 +62,7 @@ public class GameManager : MonoBehaviour
         LeftGloveTag = TagHandle.GetExistingTag(_leftGloveTag);
         RightGloveTag = TagHandle.GetExistingTag(_rightGloveTag);
 
-        ScreenSize = new Vector2(Screen.width, Screen.height);
+        screenSize = new Vector2(Screen.width, Screen.height);
     }
 
     void Update()

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb9d31d28e8f89f4cb97c07e7cddc01b, type: 3}
-  m_Name: Bossfight - Glitch Gremlin
+  m_Name: Toby Fox - Ghost Fight
   m_EditorClassIdentifier: 
-  musicClip: {fileID: 8300000, guid: 0e6952f466384e447abd02a74f38a8a9, type: 3}
-  chartName: Glitch Gremlin
-  songArtist: Bossfight
-  coverImage: {fileID: 6113141664398338348, guid: 6d348f3d70bfc0d4c820a53d3ba12441, type: 3}
+  musicClip: {fileID: 8300000, guid: cba947e40e98b954ca355270f8508953, type: 3}
+  chartName: Ghost Fight
+  songArtist: Toby Fox
+  coverImage: {fileID: -6066461974970091630, guid: dd41cfe6dc1748c42b794b192d25dff1, type: 3}
   charterArtist: TheLetterV
-  difficultyRating: 5
-  bpm: 110
-  duration: 95
-  chartTimeline: {fileID: 11400000, guid: fea9f467db22dab4d801d81203478259, type: 2}
+  difficultyRating: 3
+  bpm: 113
+  duration: 59
+  chartTimeline: {fileID: 11400000, guid: bda4e1237b307d24a95be78af366bcb0, type: 2}

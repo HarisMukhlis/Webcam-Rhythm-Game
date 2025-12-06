@@ -32,8 +32,8 @@ public class Message
 
     Vector2 NormalizeToPixel(Vector2 pos)
     {
-        float pixelX = pos.x * GameManager.Instance.ScreenSize.x;
-        float pixelY = pos.y * GameManager.Instance.ScreenSize.y;
+        float pixelX = pos.x * GameManager.Instance.GetActualScreenSize.x;
+        float pixelY = pos.y * GameManager.Instance.GetActualScreenSize.y;
 
         return new Vector2(pixelX, pixelY);
     }

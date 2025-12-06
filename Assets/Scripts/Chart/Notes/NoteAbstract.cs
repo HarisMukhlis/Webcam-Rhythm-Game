@@ -45,7 +45,7 @@ public abstract class NoteAbstract : MonoBehaviour
     // [SerializeField] protected int gloveLayer = 10;
 
     [Header("Note")]
-    [SerializeField] protected float duration = 2f;
+    [SerializeField] public float duration => GameManager.Instance.noteDelay;
     [Space]
     public Note note;
 
@@ -55,7 +55,7 @@ public abstract class NoteAbstract : MonoBehaviour
     [SerializeField][Tooltip("Threshold for \"Perfect\" judgment, smaller than tolerance")] protected float judgmentDeadZone = 0.06f;
     [SerializeField][Tooltip("\"Miss\" timing, above this won't be counted as anything")] protected float judgmentMiss = 1f;
     [Space]
-    [SerializeField][Tooltip("Good & Great thresholds (in that order). Calculated based on normalized value.")] protected float[] judgmentThresholds;
+    [SerializeField][Tooltip("Threshold split for Great and Good judgments. Calculated based on normalized value.")] protected float judgmentThreshold = 0.6f;
 
     [Header("Events")]
     public UnityEvent onSpawn;
@@ -158,21 +158,21 @@ public abstract class NoteAbstract : MonoBehaviour
         string judgmentDesc;
         Color judgmentColor;
 
-        if (JudgmentPercent > 0.99f)
+        if (JudgmentPercent > 0.999f)
         {
             judgmentDesc = "Perfect!!";
             judgmentColor = Color.yellow;
 
             ChartManager.Instance.AddHit(JudgmentType.PerfectHit);
         }
-        else if (JudgmentPercent >= judgmentThresholds[1])
+        else if (JudgmentPercent >= judgmentThreshold)
         {
             judgmentDesc = "Great!";
             judgmentColor = Color.cyan;
 
             ChartManager.Instance.AddHit(JudgmentType.GreatHit);
         }
-        else if (JudgmentPercent >= judgmentThresholds[0])
+        else if (JudgmentPercent >= 0.001f)
         {
             judgmentDesc = "Good!";
             judgmentColor = Color.blue;

@@ -14,28 +14,28 @@ public class ChartPanelUI : MonoBehaviour
 
     [Header("Stats")]
     [SerializeField] private ChartInfo chartInfo;
-    private string titleName {
-        get { return titleName; }
-        set
-        {
-            titleName = titleText.text = value;
-        }
-    }
-    private string artistName {
-        get { return artistName; }
-        set
-        {
-            artistName = titleText.text = value;
-        }
-    }
+    // private string titleName {
+    //     get { return titleName; }
+    //     set
+    //     {
+    //         titleName = titleText.text = value;
+    //     }
+    // }
+    // private string artistName {
+    //     get { return artistName; }
+    //     set
+    //     {
+    //         artistName = artistText.text = value;
+    //     }
+    // }
 
     public void SetChartInfo(ChartInfo chartInfo, int index = 0)
     {
         this.chartInfo = chartInfo;
         this.index = index;
 
-        titleName = chartInfo.chartName;
-        artistName = chartInfo.songArtist;
+        titleText.text = chartInfo.chartName;
+        artistText.text = chartInfo.songArtist;
     }
 
     public void Callback()

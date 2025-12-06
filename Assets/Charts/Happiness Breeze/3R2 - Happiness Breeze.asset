@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb9d31d28e8f89f4cb97c07e7cddc01b, type: 3}
-  m_Name: Bossfight - Glitch Gremlin
+  m_Name: 3R2 - Happiness Breeze
   m_EditorClassIdentifier: 
-  musicClip: {fileID: 8300000, guid: 0e6952f466384e447abd02a74f38a8a9, type: 3}
-  chartName: Glitch Gremlin
-  songArtist: Bossfight
-  coverImage: {fileID: 6113141664398338348, guid: 6d348f3d70bfc0d4c820a53d3ba12441, type: 3}
+  musicClip: {fileID: 8300000, guid: 3d78e6c8600ad484db36dd48bd123a5f, type: 3}
+  chartName: Happiness Breeze
+  songArtist: 3R2
+  coverImage: {fileID: -4585480084941358012, guid: bc0c116b743baee4aa749f4b3712bf0d, type: 3}
   charterArtist: TheLetterV
-  difficultyRating: 5
-  bpm: 110
-  duration: 95
-  chartTimeline: {fileID: 11400000, guid: fea9f467db22dab4d801d81203478259, type: 2}
+  difficultyRating: 9
+  bpm: 185
+  duration: 86
+  chartTimeline: {fileID: 11400000, guid: 63d84b68d1a4d184c9a04c080849c458, type: 2}

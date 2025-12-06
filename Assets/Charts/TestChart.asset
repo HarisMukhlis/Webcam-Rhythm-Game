@@ -17,7 +17,7 @@ MonoBehaviour:
   songArtist: Artist Name
   coverImage: {fileID: -3419086446866675458, guid: e866417f32ea51e47a0e397647762c42, type: 3}
   charterArtist: Me
-  difficultyRating: 3
+  difficultyRating: 1
   bpm: 60
   duration: 2
   chartTimeline: {fileID: 11400000, guid: df8699a72fc93b347a381351f88113c4, type: 2}
